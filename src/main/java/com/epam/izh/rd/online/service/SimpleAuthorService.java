@@ -5,6 +5,7 @@ import com.epam.izh.rd.online.repository.AuthorRepository;
 
 public class SimpleAuthorService implements AuthorService {
     private AuthorRepository authorRepository;
+
     @Override
     public boolean save(Author author) {
         return authorRepository.save(author);

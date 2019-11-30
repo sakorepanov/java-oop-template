@@ -5,7 +5,7 @@ import java.util.Objects;
 
 /**
  * Класс содержащий информацию об авторе.
- *
+ * <p>
  * Необходимо:
  * 1) Создать список полей с указанными типами ровно в этом порядке:
  * - name с типом String и приватным модификатором доступа
@@ -81,7 +81,6 @@ public class Author {
     public int hashCode() {
         return Objects.hash(name, lastName, birthdate, country);
     }
-
 
 
     @Override

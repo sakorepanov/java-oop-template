@@ -7,6 +7,7 @@ import com.epam.izh.rd.online.repository.BookRepository;
 public class SimpleSchoolBookService implements BookService<SchoolBook> {
     private BookRepository<SchoolBook> schoolBookBookRepository;
     private AuthorService authorService;
+
     @Override
     public boolean save(SchoolBook book) {
         if (authorService.findByFullName(book.getAuthorName(), book.getAuthorLastName()) != null) {
@@ -37,6 +38,9 @@ public class SimpleSchoolBookService implements BookService<SchoolBook> {
 
     @Override
     public Author findAuthorByBookName(String name) {
+        if (schoolBookBookRepository.findByName(name).length != 0) {
+            return authorService.findByFullName(schoolBookBookRepository.findByName(name)[0].getAuthorName(), schoolBookBookRepository.findByName(name)[0].getAuthorLastName());
+        }
         return null;
     }
 

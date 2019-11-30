@@ -15,7 +15,7 @@ public class SimpleSchoolBookRepository implements BookRepository<SchoolBook> {
         } else {
             int countOfBooks = schoolBooks.length + 1;
             schoolBooks = Arrays.copyOf(schoolBooks, countOfBooks);
-            schoolBooks[countOfBooks-1] = book;
+            schoolBooks[countOfBooks - 1] = book;
             return true;
         }
     }
@@ -48,7 +48,7 @@ public class SimpleSchoolBookRepository implements BookRepository<SchoolBook> {
                     break;
                 }
             }
-            for (int i = indexForRemove; i < schoolBooks.length; i++) {
+            for (int i = indexForRemove; i < schoolBooks.length - 1; i++) {
                 schoolBooks[i] = schoolBooks[i + 1];
             }
             schoolBooks = Arrays.copyOf(schoolBooks, schoolBooks.length - 1);

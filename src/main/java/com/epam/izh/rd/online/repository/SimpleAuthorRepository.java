@@ -13,7 +13,8 @@ public class SimpleAuthorRepository implements AuthorRepository {
         if (authors.length == 0) {
             authors = new Author[]{author};
             return true;
-        } else if (findByFullName(author.getName(), author.getLastName()) == null) {
+        }
+        if (findByFullName(author.getName(), author.getLastName()) == null) {
             int countOfAuthors = authors.length + 1;
             authors = Arrays.copyOf(authors, countOfAuthors);
             authors[countOfAuthors] = author;
